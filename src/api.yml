@@ -1,0 +1,30 @@
+openapi: 3.0.1
+
+info:
+  title: Sample Video API
+  description: Sample Video API
+  version: '1.0'
+
+paths:
+  /api/v1/video-process:
+    get:
+      tags:
+        - video
+      summary: Process a video input
+      operationId: VideoProcess
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoProcessingStateDto'
+
+components:
+  schemas:
+    VideoProcessingStateDto:
+      type: string
+      enum:
+        - IN_PROGRESS
+        - FAILED
+        - FINISHED
